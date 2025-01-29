@@ -22,7 +22,7 @@ function objectValues(object) {
 //////////////////////////////////////////////////////////////////////
 /**
  I: object
- O: string of object keys
+ O: string of object keys with a space in between
  C:
  E:
  */
@@ -30,7 +30,7 @@ function objectValues(object) {
 function keysToString(object) {
 let output = '';
 for(let key in object){
-    key += output + " "
+    [key] += output + " "
 }
 return output;
 }
@@ -39,14 +39,18 @@ return output;
 // Function 3 - Values to String /////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 /**
- I:
- O:
+ I: object
+ O: object values 
  C:
  E:
  */
 
 function valuesToString(object) {
-    
+    let output = '';
+    for(let key in object){
+        object[key] += output + " "
+    }
+    return output; 
 }
 
 //////////////////////////////////////////////////////////////////////
