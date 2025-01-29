@@ -26,7 +26,7 @@
     QUnit.test("Function Parameters become scoped to the function.", function(assert){
   
       function yay(param){
-        assert.equal(param, "???");
+        assert.equal(param, "a fine kettle of fish");
       }
   
       yay("a fine kettle of fish");
