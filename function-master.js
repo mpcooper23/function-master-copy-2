@@ -139,41 +139,56 @@ return object.name + " is a " + object.species
 //////////////////////////////////////////////////////////////////////
 /**
  I: object
- O:
+ O: return object array of noises
  C:
  E:
  */
 
 function maybeNoises(object) {
-
+for(let key in object){
+    if(object[key] === Array.isArray(noises)){
+        return noises.split(" ")
+    }else if (object[key] !== Array.isArray(noises)){
+        return 'there are no noises'
+    }
+}
 }
 
 //////////////////////////////////////////////////////////////////////
 // Function 10 - Has Words ///////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 /**
- I:
- O:
+ I: string of words and a single word
+ O: return true if word is in string
  C:
  E:
  */
 
 function hasWord(string, word) {
-
+let split = string.split(" ") //remember to place a quote with a space in between 
+for (let i = 0; i < split.length; i++){
+    if(split[i] === word){
+        return true;
+    }  
+}
+return false //return false only after loop executes through all words, not just the first
 }
 
 //////////////////////////////////////////////////////////////////////
 // Function 11 - Add Friend //////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 /**
- I:
- O:
+ I: name (string data) and an object
+ O: return object with name added to friends array
  C:
  E:
  */
 
 function addFriend (name, object) {
-
+ if(Array.isArray(object.friends)){
+        object.friends.push(name)
+    }
+return object;
 }
 
 //////////////////////////////////////////////////////////////////////
