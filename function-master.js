@@ -8,12 +8,13 @@
  E:
  */
 
-
 function objectValues(object) {
     let output = [];
+
     for(let key in object){
         output.push(object[key])
     }
+
     return output;
 } 
 
@@ -24,7 +25,7 @@ function objectValues(object) {
  I: object
  O: string of object keys with a space in between
  C:
- E:
+ E: use trim() on output to delete final space
  */
 
 function keysToString(object) {
@@ -32,7 +33,7 @@ let output = '';
 for(let key in object){
     output += key + " "
 }
-return output;
+return output.trim(); //affix trim() to delete space after last element.
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -48,58 +49,68 @@ return output;
 function valuesToString(object) {
     let output = '';
     for(let key in object){
-        object[key] += output + " "
+      if (typeof object[key] === "string") { //remember to check for string keys first
+      output += object[key] + " "
     }
-    return output; 
+}
+    return output.trim(); 
 }
 
 //////////////////////////////////////////////////////////////////////
 // Function 4 - Array or Object //////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 /**
- I:
- O:
- C:
+ I: collection, either array or object
+ O: returns type of complex object
+ C: use type of in conditional statement to determine type of collection returns
  E:
  */
 
 function arrayOrObject(collection) {
-    
+    if (Array.isArray(collection)){
+        return 'array'
+    }else if (typeof collection === 'object'){//make sure to put object in quotes
+        return 'object'
+    }
 }
 
 //////////////////////////////////////////////////////////////////////
 // Function 5 - Capitalize Word //////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 /**
- I:
- O:
+ I: string
+ O: cap first char
  C:
  E:
  */
 
 function capitalizeWord(string) {
-    
-}
+    return string[0].toUpperCase() + string.slice(1)//concatenate string.slice(1) to capped 0 index
+}                                                    //NOT string[0].toUpperCase().slice(1)
 
 //////////////////////////////////////////////////////////////////////
 // Function 6 - Capitalize All Words /////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 /**
- I:
- O:
- C:
+ I: string
+ O:  string with each word capped
+ C: split sentence, use for loop to access each first char
  E:
  */
 
 function capitalizeAllWords(string) {
-    
+    let split = string.split(" ");
+    for(let i = 0; i < split.length; i++){
+    split[i] = split[i][0].toUpperCase() + split[i].slice(1);
+}
+return split.join(" ")//remember to put space in quotes, to separate eachr rejoined word
 }
 
 //////////////////////////////////////////////////////////////////////
 // Function 7 - Welcome Message //////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 /**
- I:
+ I: object
  O:
  C:
  E:
