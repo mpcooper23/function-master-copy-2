@@ -30,7 +30,7 @@ function objectValues(object) {
 function keysToString(object) {
 let output = '';
 for(let key in object){
-    [key] += output + " "
+    output += key + " "
 }
 return output;
 }
