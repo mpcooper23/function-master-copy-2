@@ -185,8 +185,8 @@ return false //return false only after loop executes through all words, not just
  */
 
 function addFriend (name, object) {
- if(Array.isArray(object.friends)){
-        object.friends.push(name)
+ if(Array.isArray(object.friends)){//don't need a for-in loop to access object[key]
+        object.friends.push(name)    //just use dot notation to access friends array and push
     }
 return object;
 }
@@ -195,14 +195,21 @@ return object;
 // Function 12 - Is Friend ///////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 /**
- I:
- O:
+ I: name (string data) and an object
+ O: return true if name is in friends array of object, false if not
  C:
  E:
  */
 
 function isFriend(name, object) {
-
+if(Array.isArray(object.friends)){
+    for(let i = 0; i < object.friends.length; i++){
+        if(object.friends[i] === name){
+            return true;
+        }
+    }   
+}
+return false;
 }
 
 //////////////////////////////////////////////////////////////////////
