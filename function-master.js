@@ -99,11 +99,11 @@ function capitalizeWord(string) {
  */
 
 function capitalizeAllWords(string) {
-    let split = string.split(" ");
+    let split = string.split(" ");//remember to put space between quotes
     for(let i = 0; i < split.length; i++){
     split[i] = split[i][0].toUpperCase() + split[i].slice(1);
 }
-return split.join(" ")//remember to put space in quotes, to separate eachr rejoined word
+return split.join(" ")//remember to put space in quotes, to separate each rejoined word
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -216,8 +216,8 @@ return false;
 // Function 13 - Non-Friends /////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 /**
- I:
- O:
+ I: name (string data) and an array of names
+ O: returns an array of people not included in friends list
  C:
  E:
  */
@@ -230,14 +230,14 @@ function nonFriends(name, array) {
 // Function 14 - Update Object ///////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 /**
- I:
+ I: object, key, value
  O:
  C:
  E:
  */
 
 function updateObject(object, key, value) {
-
+return object[key] = value;
 }
 
 //////////////////////////////////////////////////////////////////////
