@@ -223,7 +223,13 @@ return false;
  */
 
 function nonFriends(name, array) {
-
+    let noFriend = []
+for (let i = 0; i < array.length; i++){
+    if (array[i] !== name){
+        noFriend.push(array[i])
+    }
+}
+return noFriend;
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -251,6 +257,7 @@ return object[key] = value;
  */
 
 function removeProperties(object, array) {
+    
 
 }
 
