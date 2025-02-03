@@ -144,15 +144,14 @@ return object.name + " is a " + object.species
  E:
  */
 
-function maybeNoises(object) {
-for(let key in object){
-    if(object[key] === Array.isArray(noises)){
-        return noises.split(" ")
-    }else if (object[key] !== Array.isArray(noises)){
-        return 'there are no noises'
+ function maybeNoises(object) {
+    for (let key in object) {
+      if (Array.isArray(object[key])) {
+        return object[key].join(" ");
+      }
     }
-}
-}
+    return 'there are no noises';
+  }
 
 //////////////////////////////////////////////////////////////////////
 // Function 10 - Has Words ///////////////////////////////////////////
@@ -225,8 +224,8 @@ return false;
 function nonFriends(name, array) {
     let noFriend = []
 for (let i = 0; i < array.length; i++){
-    if (array[i] !== name){
-        noFriend.push(array[i])
+    if (array[i].name !== name){
+        noFriend.push(array[i].name)
     }
 }
 return noFriend;
@@ -243,23 +242,41 @@ return noFriend;
  */
 
 function updateObject(object, key, value) {
-return object[key] = value;
+object[key] = value; //don't return object[key] = value
+return object;          // return entire object
 }
 
 //////////////////////////////////////////////////////////////////////
 // Function 15 - Remove Properties ///////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 /**
- I:
- O:
+ I: object, array of strings
+ O: strings from array removed from object
  C:
  E:
  */
 
-function removeProperties(object, array) {
-    
+ function removeProperties(object, array) {
+    for (let i = 0; i < array.length; i++) {
+      if (object.hasOwnProperty(array[i])) {
+        delete object[array[i]];
+      }
+    }
+  }
+  
+
+/*function removeProperties(object, array) {
+    for (let key in object){
+        if(Array.isArray(object[key])){
+for (let i = 0; i < array.length; i++){
+    if (array[i] === object[key]){
+        delete object[key]
+    }
+        }
+    }
 
 }
+}*/
 
 //////////////////////////////////////////////////////////////////////
 // Function 16 - Dedup ///////////////////////////////////////////////
