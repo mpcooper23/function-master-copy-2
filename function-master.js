@@ -117,10 +117,8 @@ return split.join(" ")//remember to put space in quotes, to separate each rejoin
  */
 
  function welcomeMessage(object) {
-    if (object && object.name) {
-      return `Welcome ${object.name}!`;
-    }
-  }
+      return 'Welcome ' + object.name + '!';
+}
 
 //////////////////////////////////////////////////////////////////////
 // Function 8 - Profile Info /////////////////////////////////////////
