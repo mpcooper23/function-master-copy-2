@@ -117,9 +117,10 @@ return split.join(" ")//remember to put space in quotes, to separate each rejoin
  */
 
  function welcomeMessage(object) {
-      return 'Welcome ' + object.name + '!';
-}
-
+        let capName = object.name[0].toUpperCase() + object.name.slice(1);
+        return `Welcome ${capName}!`;
+      }
+    
 //////////////////////////////////////////////////////////////////////
 // Function 8 - Profile Info /////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
@@ -130,7 +131,9 @@ return split.join(" ")//remember to put space in quotes, to separate each rejoin
  E:
  */
 function profileInfo(object){
-    return `${object.name} is a ${object.species}`;
+    let capName = object.name[0].toUpperCase() + object.name.slice(1);
+    let capSpecies = object.species[0].toUpperCase() + object.species.slice(1);
+    return `${capName} is a ${capSpecies}`;
   }
 
 
