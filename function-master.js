@@ -116,9 +116,11 @@ return split.join(" ")//remember to put space in quotes, to separate each rejoin
  E:
  */
 
-function welcomeMessage(object) {
-return `Welcome ${object.name}!`
-}
+ function welcomeMessage(object) {
+    if (object && object.name) {
+      return `Welcome ${object.name}!`;
+    }
+  }
 
 //////////////////////////////////////////////////////////////////////
 // Function 8 - Profile Info /////////////////////////////////////////
@@ -129,10 +131,10 @@ return `Welcome ${object.name}!`
  C: dot notation to access object values
  E:
  */
+function profileInfo(object){
+    return `${object.name} is a ${object.species}`;
+  }
 
-function profileInfo(object) {
-return object.name + " is a " + object.species
-}
 
 //////////////////////////////////////////////////////////////////////
 // Function 9 - Maybe Noises /////////////////////////////////////////
@@ -145,12 +147,10 @@ return object.name + " is a " + object.species
  */
 
  function maybeNoises(object) {
-    for (let key in object) {
-      if (Array.isArray(object[key])) {
-        return object[key].join(" ");
+    if (object && Array.isArray(object.noises) && object.noises.length > 0) {
+        return object.noises.join(' '); // Join the noises array into a string separated by spaces
       }
-    }
-    return 'there are no noises';
+      return 'there are no noises'; // Return this if there are no noises
   }
 
 //////////////////////////////////////////////////////////////////////
@@ -221,14 +221,20 @@ return false;
  E:
  */
 
-function nonFriends(name, array) {
-    let noFriend = []
-for (let i = 0; i < array.length; i++){
-    if (array[i].name !== name){
-        noFriend.push(array[i].name)
-    }
-}
-return noFriend;
+    function nonFriends(name, people) {
+        let noFriend = [];
+        let person = people.find(p => p.name === name);
+      
+        if (!person) {
+          return noFriend; // Return empty if the person is not found
+        }
+      
+        for (let i = 0; i < people.length; i++) {
+          if (people[i].name !== name && !person.friends.includes(people[i].name)) {
+            noFriend.push(people[i].name);
+          }
+        }
+        return noFriend;
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -289,11 +295,8 @@ for (let i = 0; i < array.length; i++){
  */
 
 function dedup(array) {
-for(let i = 0; i < array.length; i++){
-    if(array[i] === array[i]){
-        delete array[i]
-    }
-}
+    let uniqueArr = [...new Set(array)];
+    return uniqueArr;
 }
 
 //////////////////////////////////////////////////////////////////////
